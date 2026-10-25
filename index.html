@@ -1,0 +1,35 @@
+<h3>Student Registration</h3>
+
+<input id="name" placeholder="Student Name">
+<input id="roll" placeholder="Roll Number">
+<input id="course" placeholder="Course">
+<button onclick="addStudent()">Register</button>
+
+<table border="1">
+<tr><th>Name</th><th>Roll No</th><th>Course</th></tr>
+<tbody id="list"></tbody>
+</table>
+<h3>search student</h3>
+<input id="search" placeholder="Search by name" onkeyup="searchStudent()">
+<script>
+function addStudent() {
+    let n = document.getElementById("name").value;
+    let r = document.getElementById("roll").value;
+    let c = document.getElementById("course").value;
+
+    if (n == "" || r == "" || c == "")
+        return alert("Fill all fields");
+
+    document.getElementById("list").innerHTML +=
+        `<tr><td>${n}</td><td>${r}</td><td>${c}</td></tr>`;
+}
+function searchStudent() {
+    let s = search.value.toLowerCase();
+    let rows = list.rows;
+
+    for (let i = 0; i < rows.length; i++) {
+        rows[i].style.display =
+            rows[i].innerText.toLowerCase().includes(s) ? "" : "none";
+    }
+}
+</script>
